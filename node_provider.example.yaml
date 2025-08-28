@@ -1,0 +1,65 @@
+apiVersion: management.loft.sh/v1
+kind: NodeProvider
+metadata:
+  name: auto-nodes-aws
+spec:
+  terraform:
+    nodeEnvironmentTemplate:
+      git:
+        repository: https://github.com/pascalbreuninger/auto-nodes-aws.git
+        subPath: environment
+    nodeTemplate:
+      git:
+        repository: https://github.com/pascalbreuninger/auto-nodes-aws.git
+        subPath: node
+    nodeTypes:
+    - name: t3.nano
+      resources:
+        cpu: "2"
+        memory: 0.5Gi
+      properties:
+        instance-type: t3.nano
+        region: "eu-central-1,us-east-1"
+    - name: t3.micro
+      resources:
+        cpu: "2"
+        memory: 1Gi
+      properties:
+        instance-type: t3.micro
+        region: "eu-central-1,us-east-1"
+    - name: t3.small
+      resources:
+        cpu: "2"
+        memory: 2Gi
+      properties:
+        instance-type: t3.small
+        region: "eu-central-1,us-east-1"
+    - name: t3.medium
+      resources:
+        cpu: "2"
+        memory: 4Gi
+      properties:
+        instance-type: t3.medium
+        region: "eu-central-1,us-east-1"
+    - name: t3.large
+      resources:
+        cpu: "2"
+        memory: 8Gi
+      properties:
+        instance-type: t3.large
+        region: "eu-central-1,us-east-1"
+    - name: t3.xlarge
+      resources:
+        cpu: "4"
+        memory: 16Gi
+      properties:
+        instance-type: t3.xlarge
+        region: "eu-central-1,us-east-1"
+    - name: t3.2xlarge
+      resources:
+        cpu: "8"
+        memory: 32Gi
+      properties:
+        instance-type: t3.2xlarge
+        region: "eu-central-1,us-east-1"
+    
