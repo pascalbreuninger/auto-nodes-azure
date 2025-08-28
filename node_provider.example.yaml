@@ -1,65 +1,56 @@
 apiVersion: management.loft.sh/v1
 kind: NodeProvider
 metadata:
-  name: auto-nodes-aws
+  name: auto-nodes-azure
 spec:
   terraform:
     nodeEnvironmentTemplate:
       git:
-        repository: https://github.com/pascalbreuninger/auto-nodes-aws.git
+        repository: https://github.com/loft-sh/vcluster-auto-nodes-azure.git
         subPath: environment
     nodeTemplate:
       git:
-        repository: https://github.com/pascalbreuninger/auto-nodes-aws.git
+        repository: https://github.com/loft-sh/vcluster-auto-nodes-azure.git
         subPath: node
     nodeTypes:
-    - name: t3.nano
-      resources:
-        cpu: "2"
-        memory: 0.5Gi
-      properties:
-        instance-type: t3.nano
-        region: "eu-central-1,us-east-1"
-    - name: t3.micro
-      resources:
-        cpu: "2"
-        memory: 1Gi
-      properties:
-        instance-type: t3.micro
-        region: "eu-central-1,us-east-1"
-    - name: t3.small
-      resources:
-        cpu: "2"
-        memory: 2Gi
-      properties:
-        instance-type: t3.small
-        region: "eu-central-1,us-east-1"
-    - name: t3.medium
+    - name: standard-a2-v2
       resources:
         cpu: "2"
         memory: 4Gi
       properties:
-        instance-type: t3.medium
-        region: "eu-central-1,us-east-1"
-    - name: t3.large
+        instance-type: Standard_A2_v2
+        location: "westeurope,eastus"
+        resource-group: "*"
+    - name: standard-d2s-v5
       resources:
         cpu: "2"
         memory: 8Gi
       properties:
-        instance-type: t3.large
-        region: "eu-central-1,us-east-1"
-    - name: t3.xlarge
+        instance-type: Standard_D2s_v5
+        location: "westeurope,eastus"
+        resource-group: "*"
+    - name: standard-d4s-v5
       resources:
         cpu: "4"
         memory: 16Gi
       properties:
-        instance-type: t3.xlarge
-        region: "eu-central-1,us-east-1"
-    - name: t3.2xlarge
+        instance-type: Standard_D4s_v5
+        location: "westeurope,eastus"
+        resource-group: "*"
+    - name: standard-d8s-v5
       resources:
         cpu: "8"
         memory: 32Gi
       properties:
-        instance-type: t3.2xlarge
-        region: "eu-central-1,us-east-1"
+        instance-type: Standard_D8s_v5
+        location: "westeurope,eastus"
+        resource-group: "*"
+    - name: standard-d16s-v5
+      resources:
+        cpu: "16"
+        memory: 64Gi
+      properties:
+        instance-type: Standard_D16s_v5
+        location: "westeurope,eastus"
+        resource-group: "*"
     
